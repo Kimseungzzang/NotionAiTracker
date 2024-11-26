@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="home.css">
+    <meta charset="UTF-8">
+    <title>Notion Change Tracker</title>
+</head>
+<body>
+
+
+<form action="/track" method="post">
+    <button type="submit">변경내용 확인하기</button>
+</form>
+
+
+<pre th:text="${notionResponse}">No response yet.</pre>
+</body>
+</html>
