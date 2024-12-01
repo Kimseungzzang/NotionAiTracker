@@ -28,7 +28,6 @@ public class NotionController {
         String newNotionPage=notionService.getNewNotionPage("13590dd6c2ce80048324c79dcdf5ed32");
         String response=notionService.getNotionPageChange(newNotionPage);
         notionService.saveNotionPage(newNotionPage);
-        telegramScheduler.sendPeriodicMessage(response);
         model.addAttribute("notionResponse",response);
         return "home";
 

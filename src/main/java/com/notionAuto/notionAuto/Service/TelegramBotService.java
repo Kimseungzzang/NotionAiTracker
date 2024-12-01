@@ -9,24 +9,28 @@ public class TelegramBotService {
     @Value("${telegram.api.token}")
     private String BOT_TOKEN;
 
-    private final String TELEGRAM_API_URL = "https://api.telegram.org/bot" + BOT_TOKEN;
-
     private final WebClient webClient;
 
     public TelegramBotService(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl(TELEGRAM_API_URL).build();
+        this.webClient = webClientBuilder
+                .baseUrl("https://api.telegram.org")
+                .build();
     }
 
     public void sendMessage(Long chatId, String message) {
-        String sendMessageEndpoint = "/sendMessage";
+        String sendMessageEndpoint = "/bot" + BOT_TOKEN + "/sendMessage";
 
         webClient.post()
-                .uri(uriBuilder -> uriBuilder.path(sendMessageEndpoint)
+                .uri(uriBuilder -> uriBuilder
+                        .path(sendMessageEndpoint)
                         .queryParam("chat_id", chatId)
                         .queryParam("text", message)
                         .build())
                 .retrieve()
                 .bodyToMono(String.class)
-                .subscribe(response -> System.out.println("Message sent: " + response));
+                .subscribe(
+                        response -> System.out.println("Message sent: " + response),
+                        error -> System.err.println("Failed to send message: " + error.getMessage())
+                );
     }
 }
