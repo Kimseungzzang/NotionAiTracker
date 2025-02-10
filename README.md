@@ -35,3 +35,6 @@ NotionAiTracker
 [11월 26일](https://www.notion.so/11-26-14a90dd6c2ce80528f12dafb7f6a3a5e?pvs=21)
 
 [12월1일](https://www.notion.so/12-1-14f90dd6c2ce8031a4e9fa53977d7554?pvs=21)
+
+
+![KakaoTalk_Photo_2025-02-10-15-11-31](https://github.com/user-attachments/assets/74972f10-a819-4cd7-9959-89bdf31b81da)
